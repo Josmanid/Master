@@ -1,5 +1,6 @@
 ﻿
 using Master;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 
@@ -13,11 +14,13 @@ listener.Start();
 
 while (true)
 {
-
+   
     // Waiting for connection
     TcpClient socket = listener.AcceptTcpClient();
-    Task.Run(() => HandleClient.Handleclient(socket));
 
+    Task.Run(() => HandleClient.Handleclient(socket));
+   
+    
 }
 
 

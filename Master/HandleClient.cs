@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net.Sockets;
@@ -19,7 +20,8 @@ namespace Master
             StreamReader streamReader = new StreamReader(stream);
             StreamWriter streamWriter = new StreamWriter(stream);
             streamWriter.AutoFlush = true;
-
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             // splitting dictionary into 4 chunks
             string[] alllines = File.ReadAllLines("webster-dictionary.txt");
             // how many lines per chunk
@@ -57,10 +59,10 @@ namespace Master
                 if (result == "DONE") break;
                 Console.WriteLine(result + " Was given by slave");
             }
-            
-           
+            stopwatch.Stop();
 
-          
+            Console.WriteLine($"Client {index} processed chunk in {stopwatch.ElapsedMilliseconds} ms");
+
 
 
             socket.Close();
