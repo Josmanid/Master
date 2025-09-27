@@ -27,6 +27,7 @@ namespace Master
             // how many lines per chunk
             int chunkSize = alllines.Length / 4;
             //Make 4 chunks
+            //TODO: make loop
             string[] chunk1 = alllines.Take(chunkSize).ToArray();
             string[] chunk2 = alllines.Skip(chunkSize).Take(chunkSize).ToArray();
             string[] chunk3 = alllines.Skip(chunkSize * 2).Take(chunkSize).ToArray();
