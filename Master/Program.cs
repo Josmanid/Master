@@ -6,7 +6,7 @@ using System.Net.Sockets;
 
 Console.WriteLine("Master server");
 // Tcp 3 way handshake make that
-int port = 7;
+int port = 5000;
 TcpListener listener = new TcpListener(IPAddress.Any, port);
 
 listener.Start();
